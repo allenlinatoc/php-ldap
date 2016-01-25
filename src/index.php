@@ -29,3 +29,5 @@
 
 require_once __DIR__ . '/autoload.php';
 
+
+$phpldapStub = new \allenlinatoc\phpldap\PhpLdapStub();
