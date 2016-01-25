@@ -8,5 +8,7 @@
             "email": "linatoc.allen@programmer.net"
         }
     ],
-    "require": {}
+    "require": {
+        "adldap2/adldap2": "^5.2"
+    }
 }
