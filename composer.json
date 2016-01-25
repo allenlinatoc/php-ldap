@@ -1,0 +1,12 @@
+{
+    "name": "allenlinatoc/php-ldap",
+    "description": "A PHP script for basic LDAP browsing",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AllenLinatoc",
+            "email": "linatoc.allen@programmer.net"
+        }
+    ],
+    "require": {}
+}
