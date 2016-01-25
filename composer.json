@@ -9,10 +9,13 @@
         }
     ],
     "require": {
-        "adldap2/adldap2": "^5.2",
-        "wp-cli/php-cli-tools": "^0.11.0"
+        "wp-cli/php-cli-tools": "^0.11.0",
+        "mustangostang/spyc": "^0.5.1",
+        "tiesa/ldap" : "dev-master"
     },
     "autoload" : {
-        "psr-4" : { "allenlinatoc\\phpldap\\" : "src/" }
+        "files" : [
+            "src/autoload.php"
+        ]
     }
 }
