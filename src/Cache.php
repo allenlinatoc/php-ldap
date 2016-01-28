@@ -50,6 +50,18 @@ class Cache extends NetteCache
 
 
     /**
+     * Check if a key exists in this cache
+     *
+     * @param string $key       The data key to be checked
+     * @return boolean
+     */
+    public function has($key)
+    {
+        return $this->load($key) !== null;
+    }
+
+
+    /**
      * Save a data with expiration. Returns saved data value
      *
      * @param string $key               Data key
