@@ -60,6 +60,10 @@ class PhpLdapStub
     ;
 
 
+    private
+            $_queryoutput;
+
+
 
     public function __construct($config = [ ])
     {
@@ -148,13 +152,10 @@ class PhpLdapStub
         }
 
         $ymlOutput = \Spyc::YAMLDump($output, true);
-        if ($this->output == self::STDIO)
+        $this->_queryoutput = $ymlOutput;
+        if ($this->output != self::STDIO)
         {
-            echo $ymlOutput;
-        }
-        else
-        {
-            $writeSuccess = file_put_contents($this->output, $ymlOutput);
+            $writeSuccess = file_put_contents($this->output, $this->_queryoutput);
             echo (
                     $writeSuccess !== false ?
                         PHP_EOL . sprintf("Output has been successfully exported to \"%s\"", realpath($this->output))
@@ -179,18 +180,14 @@ class PhpLdapStub
     }
 
 
-    public function getValue($result, $index, $attribute)
+    /**
+     * Get search result output
+     *
+     * @return string
+     */
+    public function getOutput()
     {
-        $result = $result instanceof \Zend\Ldap\Collection ? $result->toArray() : $result;
-        $value = $result[$index];
-
-//        var_dump($value);
-//        die();
-        $attrValue = $value[$attribute];
-
-        return is_array($attrValue) ?
-                (sizeof($attrValue) > 1 ? implode(', ', $attrValue) : $attrValue[0])
-              : $attrValue;
+        return $this->_queryoutput;
     }
 
 
