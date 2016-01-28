@@ -11,8 +11,8 @@
     "require": {
         "wp-cli/php-cli-tools": "^0.11.0",
         "mustangostang/spyc": "^0.5.1",
-        "tiesa/ldap" : "dev-master",
-        "nette/caching": "^2.4"
+        "nette/caching": "^2.4",
+        "zendframework/zend-ldap": "^2.5"
     },
     "autoload" : {
         "files" : [
