@@ -28,6 +28,13 @@
 spl_autoload_register(
         function($classname)
         {
+            // Check classname
+            if (in_array(preg_match('/(^allenlinatoc\\\\phpldap\\\\)(.+)/', $classname), [ 0, false ]))
+            {
+                return;
+            }
+
+            $classname = preg_replace('/(^allenlinatoc\\\\phpldap\\\\)(.+)/', '$2', $classname);
             $path = sprintf("%s/%s.php", __DIR__, str_replace('\\', '/', $classname));
             $realpath = realpath($path);
 
